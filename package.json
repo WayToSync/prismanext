@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "workspace",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "client-dev": "SET NODE_OPTIONS=--openssl-legacy-provider && yarn workspace @prisma-next/client dev",
+    "client-build": "SET NODE_OPTIONS=--openssl-legacy-provider && yarn workspace @prisma-next/client build",
+    "client-start": "SET NODE_OPTIONS=--openssl-legacy-provider && yarn workspace @prisma-next/client start",
+    "server": "yarn workspace @prisma-next/server dev",
+    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client-start\""
+  },
+  "dependencies": {
+    "concurrently": "^6.3.0"
+  }
+}
